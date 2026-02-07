@@ -71,14 +71,35 @@ function Footer() {
   );
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+import "./globals.css";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className="min-h-dvh bg-[#fbfaf7] text-neutral-900 antialiased">
-        <Nav />
-        {children}
-        <Footer />
-      </body>
+      <head>
+        {/* Google Ads Tag */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17939002163"
+        ></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17939002163');
+            `,
+          }}
+        />
+      </head>
+
+      <body>{children}</body>
     </html>
   );
 }
