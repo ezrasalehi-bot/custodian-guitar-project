@@ -29,7 +29,7 @@ export default function Submit() {
 
         <form
           className="mt-8 grid gap-4"
-          action="https://formspree.io/f/YOUR_FORM_ID"
+          action="https://formspree.io/f/mbdajplw"
           method="POST"
         >
           <div className="grid gap-2">
