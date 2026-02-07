@@ -134,6 +134,19 @@ export default function Submit() {
           <p className="text-xs text-neutral-600">
             By submitting, you’re asking for a conversation—not committing to a sale.
           </p>
+          <div className="mt-8 border-t border-neutral-200 pt-6 text-center">
+  <p className="mb-3 text-sm text-neutral-700">
+    Prefer to email us directly?
+  </p>
+
+  <a
+    href="mailto:custodianguitarproject@gmail.com"
+    className="inline-flex items-center justify-center rounded-full bg-[#2a4b3f] px-6 py-3 text-sm font-semibold text-white hover:brightness-95"
+  >
+    Email The Custodian Guitar Project
+  </a>
+</div>
+
         </form>
       </section>
     </main>
