@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Tell Us About an Instrument",
   description:
-    "Share what you know about the instrument. No pressure, no obligation. Submissions are emailed to you via Formspree.",
+    "Share what you know about the instrument. No pressure, no obligation. We’ll respond respectfully and clearly.",
 };
 
 export default function Submit() {
@@ -18,12 +18,12 @@ export default function Submit() {
           We’ll respond respectfully and clearly—no pressure, no obligation.
         </p>
 
+        {/* Visitor-friendly note (replace the setup box) */}
         <div className="mt-5 rounded-2xl border border-neutral-200/70 bg-[#fbfaf7] p-5 text-sm text-neutral-700">
-          <p className="font-semibold">Email submissions</p>
+          <p className="font-semibold">What happens next</p>
           <p className="mt-2">
-            This form uses <span className="font-semibold">Formspree</span> to email submissions to you.
-            Replace <span className="font-semibold">YOUR_FORM_ID</span> in the form action with your
-            Formspree endpoint (example: <span className="font-mono">https://formspree.io/f/xxxxxx</span>).
+            We’ll review what you send and reply with clear next steps. There’s no obligation,
+            and we’re happy to help even if you’re not ready to sell.
           </p>
         </div>
 
@@ -83,7 +83,9 @@ export default function Submit() {
           </div>
 
           <div className="grid gap-2">
-            <label className="text-sm font-semibold">How did it come into your family?</label>
+            <label className="text-sm font-semibold">
+              How did it come into your family?
+            </label>
             <textarea
               name="provenance"
               rows={4}
@@ -93,7 +95,9 @@ export default function Submit() {
           </div>
 
           <div className="grid gap-2">
-            <label className="text-sm font-semibold">What do you know about its condition?</label>
+            <label className="text-sm font-semibold">
+              What do you know about its condition?
+            </label>
             <textarea
               name="condition"
               rows={3}
@@ -115,8 +119,8 @@ export default function Submit() {
               placeholder="https://..."
             />
             <p className="text-xs text-neutral-600">
-              Best photos: front/back, headstock (front/back), serial number, electronics cavity (if safe),
-              amp back panel, and any close-ups of notable markings.
+              Best photos: front/back, headstock (front/back), serial number,
+              electronics cavity (if safe), amp back panel, and close-ups of notable markings.
             </p>
           </div>
 
