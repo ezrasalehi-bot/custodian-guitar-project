@@ -28,10 +28,16 @@ export default function Submit() {
         </div>
 
         <form
-          className="mt-8 grid gap-4"
-          action="https://formspree.io/f/mbdajplw"
-          method="POST"
-        >
+  className="mt-8 grid gap-4"
+  action="https://formspree.io/f/mbdajplw"
+  method="POST"
+>
+  <input
+    type="hidden"
+    name="_redirect"
+    value="https://custodianguitarproject.com/thank-you"
+  />
+
           <div className="grid gap-2">
             <label className="text-sm font-semibold">Your name</label>
             <input
