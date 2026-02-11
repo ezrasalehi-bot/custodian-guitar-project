@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import Link from "next/link";
+import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import "./globals.css";
+
+const titleFont = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-title",
+  weight: ["500", "600", "700"],
+});
+
+const bodyFont = Source_Sans_3({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -8,8 +21,8 @@ export const metadata: Metadata = {
     template: "%s | The Custodian Guitar Project",
   },
   description:
-    "We acquire historically significant guitars and amplifiers directly from original owners and families—never for resale, always for lifelong preservation.",
-  metadataBase: new URL("https://example.com"), // TODO: replace after domain is live
+    "We acquire historically significant guitars and amplifiers directly from original owners and families - never for resale, always for lifelong preservation.",
+  metadataBase: new URL("https://example.com"),
   openGraph: {
     title: "The Custodian Guitar Project",
     description: "A permanent home for vintage guitars and amplifiers. No resale. Ever.",
@@ -18,40 +31,38 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/inherited", label: "Inherited a Guitar?" },
+  { href: "/what-we-seek", label: "What We Seek" },
+  { href: "/philosophy", label: "Our Philosophy" },
+  { href: "/contact", label: "Contact" },
+];
+
 function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-[#fbfaf7]/85 backdrop-blur">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4">
-        <div className="min-w-0">
-          <Link href="/" className="block text-lg font-semibold tracking-tight">
-            The Custodian Guitar Project
-          </Link>
-          <p className="text-sm text-neutral-600">
-            Permanent collection • No resale • Respectful evaluation
-          </p>
-        </div>
+    <header className="site-header">
+      <div className="mx-auto max-w-6xl px-5 py-4">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="min-w-0">
+            <Link href="/" className="site-title">
+              The Custodian Guitar Project
+            </Link>
+            <p className="site-subtitle">Permanent collection. No resale. Respectful, clear evaluations.</p>
+          </div>
 
-        <nav className="hidden items-center gap-5 text-sm md:flex">
-          <Link className="hover:underline" href="/">Home</Link>
-          <Link className="hover:underline" href="/inherited">Inherited a Guitar?</Link>
-          <Link className="hover:underline" href="/philosophy">Our Philosophy</Link>
-          <Link className="hover:underline" href="/what-we-seek">What We’re Looking For</Link>
-          <Link
-            href="/submit"
-            className="rounded-full bg-[#2a4b3f] px-4 py-2 font-semibold text-white hover:brightness-95"
-          >
+          <Link href="/submit" className="btn-primary">
             Tell Us About an Instrument
           </Link>
-        </nav>
-
-        <div className="md:hidden">
-          <Link
-            href="/submit"
-            className="rounded-full bg-[#2a4b3f] px-4 py-2 text-sm font-semibold text-white hover:brightness-95"
-          >
-            Submit
-          </Link>
         </div>
+
+        <nav aria-label="Main navigation" className="mt-4 flex flex-wrap gap-2">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} className="nav-chip">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
   );
@@ -59,19 +70,21 @@ function Nav() {
 
 function Footer() {
   return (
-    <footer className="border-t border-neutral-200/70 bg-[#fbfaf7]">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-5 py-8 text-sm text-neutral-600">
+    <footer className="border-t border-[color:var(--line)] bg-[color:var(--paper)]">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-8 text-base text-[color:var(--ink-soft)]">
         <span>© {new Date().getFullYear()} The Custodian Guitar Project</span>
-        <span className="flex gap-3">
-          <Link className="hover:underline" href="/privacy">Privacy</Link>
-          <Link className="hover:underline" href="/contact">Contact</Link>
-        </span>
+        <div className="flex flex-wrap items-center gap-4">
+          <Link href="/privacy" className="text-[color:var(--ink)] hover:underline">
+            Privacy
+          </Link>
+          <Link href="/contact" className="text-[color:var(--ink)] hover:underline">
+            Contact
+          </Link>
+        </div>
       </div>
     </footer>
   );
 }
-
-import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -79,9 +92,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${titleFont.variable} ${bodyFont.variable}`}>
       <head>
-        {/* Google Ads Tag */}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-17939002163"
@@ -98,8 +110,11 @@ export default function RootLayout({
           }}
         />
       </head>
-
-      <body>{children}</body>
+      <body>
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

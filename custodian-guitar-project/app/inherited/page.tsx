@@ -9,43 +9,37 @@ export const metadata: Metadata = {
 
 function Card({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-3xl border border-neutral-200/70 bg-white p-8 shadow-sm">
-      <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
-      <div className="mt-3 text-neutral-700">{children}</div>
+    <section className="panel p-7 md:p-8">
+      <h2 className="text-3xl font-semibold leading-tight">{title}</h2>
+      <div className="mt-3 text-lg text-[color:var(--ink-soft)]">{children}</div>
     </section>
   );
 }
 
 function Callout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mt-4 rounded-2xl border border-neutral-200 bg-[#fffaf0] p-4 text-[#3b2d1a]">
-      <div className="border-l-4 border-[#9b7b4a] pl-4">{children}</div>
+    <div className="soft-panel mt-4 p-4 text-[color:var(--ink)]">
+      <div className="border-l-4 border-[color:var(--accent)] pl-4">{children}</div>
     </div>
   );
 }
 
 export default function InheritedPage() {
   return (
-    <main className="mx-auto max-w-5xl px-5 py-14">
+    <main className="mx-auto max-w-6xl px-5 py-10 md:py-14">
       <section className="pb-8">
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+        <h1 className="text-4xl font-semibold leading-tight md:text-6xl">
           Inherited a Guitar?
         </h1>
-        <p className="mt-4 max-w-3xl text-lg text-neutral-700">
+        <p className="mt-4 max-w-4xl text-xl text-[color:var(--ink-soft)]">
           You’re not expected to know what you have. This guide will help you take the first steps
           calmly, understand value without pressure, and decide what’s right for your family.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
-          <Link
-            href="/submit"
-            className="rounded-full bg-[#2a4b3f] px-5 py-2.5 font-semibold text-white hover:brightness-95"
-          >
+          <Link href="/submit" className="btn-primary">
             Tell Us About the Guitar
           </Link>
-          <a
-            href="#process"
-            className="rounded-full border border-neutral-200 px-5 py-2.5 font-semibold hover:bg-neutral-50"
-          >
+          <a href="#process" className="btn-secondary">
             See Our Process
           </a>
         </div>
@@ -121,8 +115,8 @@ export default function InheritedPage() {
           </p>
         </Card>
 
-        <section id="process" className="rounded-3xl border border-neutral-200/70 bg-white p-8 shadow-sm">
-          <h2 className="text-xl font-semibold tracking-tight">Our Process (Simple and Respectful)</h2>
+        <section id="process" className="panel p-7 md:p-8">
+          <h2 className="text-3xl font-semibold leading-tight">Our Process (Simple and Respectful)</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-5">
             {[
               ["Step 1", "Initial Conversation", "You share what you know and send photos (if available)."],
@@ -131,12 +125,12 @@ export default function InheritedPage() {
               ["Step 4", "In-Person Experience", "When possible, we meet in person and handle the instrument with care."],
               ["Step 5", "No Obligation", "Whether you sell or not, the information is yours to keep."],
             ].map(([step, title, text]) => (
-              <div key={step} className="rounded-2xl border border-neutral-200/70 bg-[#fbfaf7] p-4">
-                <div className="inline-flex rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-semibold">
+              <div key={step} className="soft-panel p-4">
+                <div className="inline-flex rounded-full border border-[color:var(--line)] bg-white px-3 py-1 text-xs font-semibold">
                   {step}
                 </div>
                 <h3 className="mt-3 font-semibold">{title}</h3>
-                <p className="mt-2 text-sm text-neutral-700">{text}</p>
+                <p className="mt-2 text-sm text-[color:var(--ink-soft)]">{text}</p>
               </div>
             ))}
           </div>
@@ -150,22 +144,16 @@ export default function InheritedPage() {
           <p className="mt-3">We’re happy to help—without expectation.</p>
         </Card>
 
-        <section className="rounded-3xl border border-neutral-200/70 bg-white p-8 shadow-sm">
-          <h2 className="text-xl font-semibold tracking-tight">Tell Us About the Guitar</h2>
-          <p className="mt-3 text-neutral-700">
+        <section className="panel p-7 md:p-8">
+          <h2 className="text-3xl font-semibold leading-tight">Tell Us About the Guitar</h2>
+          <p className="mt-3 text-lg text-[color:var(--ink-soft)]">
             If you’d like to start a conversation, we’d be honored. Share as much or as little as you know. Photos help, but aren’t required.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href="/submit"
-              className="rounded-full bg-[#2a4b3f] px-5 py-2.5 font-semibold text-white hover:brightness-95"
-            >
+            <Link href="/submit" className="btn-primary">
               Tell Us About an Instrument
             </Link>
-            <Link
-              href="/philosophy"
-              className="rounded-full border border-neutral-200 px-5 py-2.5 font-semibold hover:bg-neutral-50"
-            >
+            <Link href="/philosophy" className="btn-secondary">
               Read Our Philosophy
             </Link>
           </div>

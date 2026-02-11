@@ -7,24 +7,24 @@ export const metadata: Metadata = {
 
 export default function Philosophy() {
   return (
-    <main className="mx-auto max-w-3xl px-5 py-14">
-      <section className="rounded-3xl border border-neutral-200/70 bg-white p-8 shadow-sm">
-        <h1 className="text-3xl font-semibold tracking-tight">Our Philosophy</h1>
+    <main className="mx-auto max-w-4xl px-5 py-10 md:py-14">
+      <section className="panel p-7 md:p-10">
+        <h1 className="text-4xl font-semibold leading-tight">Our Philosophy</h1>
 
-        <p className="mt-4 text-neutral-700">
+        <p className="mt-4 text-lg text-[color:var(--ink-soft)]">
           The Custodian Guitar Project exists for one reason: to preserve historically significant
-          instruments and carry their stories forward—without turning them into inventory.
+          instruments and carry their stories forward without turning them into inventory.
         </p>
 
-        <p className="mt-4 text-neutral-700">
-          We acquire directly from original owners and families. Instruments we acquire become part
-          of a private, permanent collection: maintained, documented, played, and cared for—never
-          relisted, never resold.
+        <p className="mt-4 text-lg text-[color:var(--ink-soft)]">
+          We acquire directly from original owners and families. Instruments become part of a
+          private, permanent collection: maintained, documented, played, and cared for, never
+          relisted and never resold.
         </p>
 
-        <div className="mt-6 rounded-2xl border border-neutral-200/70 bg-[#fbfaf7] p-5">
-          <p className="font-semibold">Our promise</p>
-          <ul className="mt-3 list-disc pl-6 text-neutral-700">
+        <div className="soft-panel mt-6 p-6">
+          <p className="text-2xl font-semibold">Our promise</p>
+          <ul className="mt-3 list-disc pl-6 text-lg text-[color:var(--ink-soft)]">
             <li>No resale. Ever.</li>
             <li>Clear, respectful communication.</li>
             <li>A thoughtful evaluation process.</li>

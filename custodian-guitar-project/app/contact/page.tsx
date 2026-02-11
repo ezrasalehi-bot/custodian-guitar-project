@@ -8,17 +8,15 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <main className="mx-auto max-w-3xl px-5 py-14">
-      <section className="rounded-3xl border border-neutral-200/70 bg-white p-8 shadow-sm">
-        <h1 className="text-3xl font-semibold tracking-tight">Contact</h1>
-        <p className="mt-4 text-neutral-700">
-          The best way to reach us is through the submission form so we can understand what you have.
+    <main className="mx-auto max-w-4xl px-5 py-10 md:py-14">
+      <section className="panel p-7 md:p-10">
+        <h1 className="text-4xl font-semibold leading-tight">Contact</h1>
+        <p className="mt-4 text-lg text-[color:var(--ink-soft)]">
+          The easiest way to reach us is through the instrument form so we can understand your
+          situation clearly.
         </p>
         <div className="mt-6">
-          <Link
-            href="/submit"
-            className="rounded-full bg-[#2a4b3f] px-5 py-2.5 font-semibold text-white hover:brightness-95"
-          >
+          <Link href="/submit" className="btn-primary">
             Tell Us About an Instrument
           </Link>
         </div>
